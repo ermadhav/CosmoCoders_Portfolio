@@ -93,6 +93,16 @@ export default async function GithubPage() {
 
           <div className={styles.statCard}>
             <div className={styles.statIcon}>
+              <VscPerson size={20} />
+            </div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{user.following}</span>
+              <span className={styles.statLabel}>Following</span>
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className={styles.statIcon}>
               <VscStarEmpty size={20} />
             </div>
             <div className={styles.statInfo}>

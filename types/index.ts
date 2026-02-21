@@ -31,6 +31,7 @@ export interface Repo {
 }
 
 export interface User {
+  following: ReactNode;
   login: string;
   avatar_url: string;
   public_repos: number;
