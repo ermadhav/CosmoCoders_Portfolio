@@ -102,18 +102,6 @@ export default async function GithubPage() {
               <span className={styles.statLabel}>Total Stars</span>
             </div>
           </div>
-
-          {/* <div className={styles.statCard}>
-            <div className={styles.statIcon}>
-              <VscRepoForked size={20} />
-            </div>
-            <div className={styles.statInfo}>
-              <span className={styles.statValue}>
-                {repos.reduce((acc, repo) => acc + repo.forks, 0)}
-              </span>
-              <span className={styles.statLabel}>Total Forks</span>
-            </div>
-          </div> */}
         </div>
 
         {/* Contribution Graph */}
