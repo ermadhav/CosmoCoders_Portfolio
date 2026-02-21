@@ -3,27 +3,27 @@ import styles from '@/styles/ContactCode.module.css';
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.com',
+    link: 'madhavtiwari.vercel.app',
     href: 'https://madhavtiwari.vercel.app',
   },
   {
     social: 'email',
     link: 'contact.madhavtiwari@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    href: 'mailto:contact.madhavtiwari@gmail.com',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
+    link: 'ermadhav',
     href: 'https://github.com/ermadhav',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
+    link: 'ermadhav',
     href: 'https://www.linkedin.com/in/emadhav/',
   },
   {
     social: 'twitter',
-    link: 'iamnitinr',
+    link: 'madhavtiwari24',
     href: 'https://www.twitter.com/madhavtiwari24',
   },
   // {
