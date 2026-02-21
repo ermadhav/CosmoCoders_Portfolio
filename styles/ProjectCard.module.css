@@ -1,0 +1,173 @@
+/* Project Card - 10x Design */
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card:first-child {
+  padding-top: 0;
+}
+
+.card:last-child {
+  padding-bottom: 0;
+}
+
+.card:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--explorer-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+}
+
+.number span {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.card:hover .number {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-color: rgba(var(--accent-color-rgb), 0.3);
+}
+
+.card:hover .number span {
+  color: var(--accent-color);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.card:hover .logoWrapper {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-color: rgba(var(--accent-color-rgb), 0.2);
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.card:hover .title {
+  color: var(--accent-color);
+}
+
+.description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s ease;
+}
+
+.card:hover .description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.action {
+  display: flex;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--accent-color);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover .link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .card {
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .number {
+    width: 32px;
+    height: 32px;
+  }
+
+  .number span {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .link {
+    opacity: 1;
+    transform: none;
+  }
+}
