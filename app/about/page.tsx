@@ -61,7 +61,7 @@ const AboutPage = () => {
           </section>
 
           {/* Experience Section */}
-          <section className={styles.section}>
+          {/* <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>02</span>
               <h2 className={styles.sectionTitle}>Experience</h2>
@@ -93,12 +93,12 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* Skills Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>03</span>
+              <span className={styles.sectionNumber}>02</span>
               <h2 className={styles.sectionTitle}>Skills</h2>
             </div>
             
