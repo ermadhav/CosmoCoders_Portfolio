@@ -16,7 +16,7 @@ export const revalidate = 600;
 
 async function getGithubData() {
   const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
+    `https://api.github.com/users/${process.env.GITHUB_USERNAME}`
   );
   if (!userRes.ok) {
     throw new Error(`Failed to fetch user: ${userRes.status}`);
