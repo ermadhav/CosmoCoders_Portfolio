@@ -16,7 +16,7 @@ export const revalidate = 600;
 
 async function getGithubData() {
   const userRes = await fetch(
-    `https://api.github.com/users/${process.env.GITHUB_USERNAME}`
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
   );
   if (!userRes.ok) {
     throw new Error(`Failed to fetch user: ${userRes.status}`);
@@ -100,6 +100,18 @@ export default async function GithubPage() {
                 {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)}
               </span>
               <span className={styles.statLabel}>Total Stars</span>
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className={styles.statIcon}>
+              <VscRepoForked size={20} />
+            </div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>
+                {repos.reduce((acc, repo) => acc + repo.forks, 0)}
+              </span>
+              <span className={styles.statLabel}>Total Forks</span>
             </div>
           </div>
         </div>
