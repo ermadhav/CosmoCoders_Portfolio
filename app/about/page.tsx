@@ -152,7 +152,7 @@ const AboutPage = () => {
 
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                When I'm not coding or thinking about the cosmos, Obsessed with code and cosmos, so just call me Cosmo Coder. 🚀💻
+                When I'm not coding or thinking about the cosmos, Obsessed with code and cosmos, so just call me Cosmo Coder.
               </p>
             </div>
           </section>
