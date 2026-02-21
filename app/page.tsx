@@ -43,7 +43,7 @@ export default function HomePage() {
 
           <div className={styles.links}>
             <a 
-              href="https://github.com/itsnitinr" 
+              href="https://github.com/ermadhav" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.link}
