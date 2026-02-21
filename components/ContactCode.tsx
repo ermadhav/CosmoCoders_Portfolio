@@ -19,7 +19,7 @@ const contactItems = [
   {
     social: 'linkedin',
     link: 'ermadhav',
-    href: 'https://www.linkedin.com/in/emadhav/',
+    href: 'https://www.linkedin.com/in/ermadhav',
   },
   {
     social: 'twitter',
