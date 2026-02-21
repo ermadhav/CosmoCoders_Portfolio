@@ -152,9 +152,7 @@ const AboutPage = () => {
 
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                When I'm not immersed in lines of code or exploring the endless cosmos of technology,
-                you'll find me diving into dystopian worlds through novels, unwinding with calm
-                piano melodies, or simply recharging for the next coding adventure.
+                When I'm not coding or thinking about the cosmos, Obsessed with code and cosmos, so just call me Cosmo Coder. 🚀💻
               </p>
             </div>
           </section>
