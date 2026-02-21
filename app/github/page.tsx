@@ -113,7 +113,7 @@ export default async function GithubPage() {
             </div>
           </div>
 
-          <div className={styles.statCard}>
+          {/* <div className={styles.statCard}>
             <div className={styles.statIcon}>
               <VscRepoForked size={20} />
             </div>
@@ -123,7 +123,7 @@ export default async function GithubPage() {
               </span>
               <span className={styles.statLabel}>Total Forks</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Contribution Graph */}
