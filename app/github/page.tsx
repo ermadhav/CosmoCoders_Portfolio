@@ -57,7 +57,7 @@ export default async function GithubPage() {
             </div>
           </div>
 
-          <a 
+          <a
             href={`https://github.com/${user.login}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -140,7 +140,7 @@ export default async function GithubPage() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Popular Repositories</h2>
-            <a 
+            <a
               href={`https://github.com/${user.login}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
@@ -150,7 +150,7 @@ export default async function GithubPage() {
               <VscLinkExternal size={14} />
             </a>
           </div>
-          
+
           <div className={styles.reposGrid}>
             {repos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />
