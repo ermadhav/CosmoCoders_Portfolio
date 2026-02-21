@@ -4,38 +4,33 @@ const contactItems = [
   {
     social: 'website',
     link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
+    href: 'https://madhavtiwari.vercel.app',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
+    link: 'contact.madhavtiwari@gmail.com',
     href: 'mailto:nitinranganath@gmail.com',
   },
   {
     social: 'github',
     link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    href: 'https://github.com/ermadhav',
   },
   {
     social: 'linkedin',
     link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    href: 'https://www.linkedin.com/in/emadhav/',
   },
   {
     social: 'twitter',
     link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    href: 'https://www.twitter.com/madhavtiwari24',
   },
-  {
-    social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
-  },
-  {
-    social: 'peerlist',
-    link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
-  },
+  // {
+  //   social: 'peerlist',
+  //   link: 'nitinranganath',
+  //   href: 'https://peerlist.io/nitinranganath',
+  // },
 ];
 
 const ContactCode = () => {
