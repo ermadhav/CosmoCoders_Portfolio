@@ -60,41 +60,6 @@ const AboutPage = () => {
             </div>
           </section>
 
-          {/* Experience Section */}
-          {/* <section className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>02</span>
-              <h2 className={styles.sectionTitle}>Experience</h2>
-            </div>
-            
-            <div className={styles.sectionBody}>
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Present</span>
-                </div>
-                <h3 className={styles.expRole}>Software Engineer 2</h3>
-                <p className={styles.expCompany}>Tessact</p>
-                <ul className={styles.expList}>
-                  <li>Leading frontend development with a lean team of 4 engineers</li>
-                  <li>Building a next-gen video creation suite for professionals</li>
-                  <li>Implemented collaborative video reviewing and editing features</li>
-                  <li>Maintaining in-house component library, icon library and website</li>
-                </ul>
-              </div>
-
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Freelance</span>
-                </div>
-                <h3 className={styles.expRole}>Technical Writer</h3>
-                <p className={styles.expDesc}>
-                  Contributing to publications like <strong>100ms Blog</strong>, 
-                  <strong>LogRocket Blog</strong>, and <strong>DEV.to</strong>.
-                </p>
-              </div>
-            </div>
-          </section> */}
-
           {/* Skills Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
@@ -139,53 +104,6 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>Figma</span>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Writing Section */}
-          <section className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>04</span>
-              <h2 className={styles.sectionTitle}>Writing</h2>
-            </div>
-            
-            <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                I&apos;ve had the pleasure of writing for some amazing publications 
-                as a freelance technical author:
-              </p>
-              
-              <div className={styles.writingLinks}>
-                <a 
-                  href="https://www.100ms.live/blog/author/nitin" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>100ms Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-                
-                <a 
-                  href="https://blog.logrocket.com/author/nitinranganath/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>LogRocket Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-                
-                <a 
-                  href="https://dev.to/itsnitinr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>DEV.to</span>
-                  <VscLinkExternal size={14} />
-                </a>
               </div>
             </div>
           </section>
