@@ -19,7 +19,7 @@ export default function HomePage() {
           <div className={styles.intro}>
             <p className={styles.greeting}>Hello, I&apos;m</p>
             
-            <h1 className={styles.name}>Nitin Ranganath</h1>
+            <h1 className={styles.name}>Madhav Tiwari</h1>
             
             <p className={styles.role}>Full Stack Developer</p>
             
