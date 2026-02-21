@@ -57,7 +57,7 @@ export default async function GithubPage() {
             </div>
           </div>
 
-          <a
+          <a 
             href={`https://github.com/${user.login}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -135,16 +135,12 @@ export default async function GithubPage() {
               hideColorLegend
               hideMonthLabels
               colorScheme="dark"
-              blockSize={12}
-              blockMargin={4}
-              fontSize={12}
               theme={{
                 dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
                 light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
               }}
-              transformData={(data) => {
-                // show only last 26 weeks instead of 53
-                return data.slice(data.length - (26 * 7));
+              style={{
+                width: '100%',
               }}
             />
           </div>
@@ -154,7 +150,7 @@ export default async function GithubPage() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Popular Repositories</h2>
-            <a
+            <a 
               href={`https://github.com/${user.login}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
@@ -164,7 +160,7 @@ export default async function GithubPage() {
               <VscLinkExternal size={14} />
             </a>
           </div>
-
+          
           <div className={styles.reposGrid}>
             {repos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />

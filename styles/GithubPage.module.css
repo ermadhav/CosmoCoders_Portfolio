@@ -32,6 +32,8 @@
   border-radius: 50%;
   border: 2px solid var(--accent-color);
 }
+
+
 .profileInfo {
   display: flex;
   flex-direction: column;
@@ -170,17 +172,12 @@
   border: 1px solid var(--explorer-border);
   border-radius: 10px;
   padding: 24px;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .contributions article {
-  transform: scale(0.95);
-  transform-origin: left;
-}
-
-.contributions svg {
   width: 100% !important;
-  height: auto !important;
+  min-width: 500px;
 }
 
 /* Repos Grid */
