@@ -14,10 +14,9 @@ const AboutPage = () => {
           <div className={styles.headerContent}>
             <div className={styles.headerText}>
               <h1 className={styles.name}>Madhav Tiwari</h1>
-              <p className={styles.role}>Software Engineer at Tessact</p>
               <div className={styles.location}>
                 <span className={styles.dot} />
-                Mumbai, India
+                Jaipur/Indore, India
               </div>
             </div>
           </div>
