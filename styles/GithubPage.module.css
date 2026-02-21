@@ -33,6 +33,23 @@
   border: 2px solid var(--accent-color);
 }
 
+.calendarOuter {
+  width: 100%;
+  overflow: hidden;
+}
+
+.calendarInner {
+  width: 728px;
+  transform: scale(0.9);
+  transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .calendarInner {
+    transform: scale(0.7);
+  }
+}
+
 .profileInfo {
   display: flex;
   flex-direction: column;
