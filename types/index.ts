@@ -18,6 +18,7 @@ export interface Project {
 }
 
 export interface Repo {
+  pushed_at: string | number | Date;
   id: number;
   name: string;
   description: string;
