@@ -140,7 +140,7 @@ export default async function GithubPage() {
                 light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
               }}
               style={{
-                width: '10%',
+                width: '100%',
               }}
             />
           </div>
