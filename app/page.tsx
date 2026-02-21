@@ -26,9 +26,7 @@ export default function HomePage() {
             <div className={styles.divider} />
             
             <p className={styles.description}>
-              I craft clean, performant web applications with modern technologies. 
-              Specialized in TypeScript, React, Node.js, and building products 
-              that users love.
+              A passionate MERN Developer who loves creating, learning, and sharing knowledge through code. 🌟
             </p>
           </div>
 
