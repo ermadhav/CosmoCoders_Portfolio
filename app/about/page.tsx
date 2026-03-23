@@ -1,6 +1,8 @@
 'use client';
 
-import { VscGithub, VscMail, VscLinkExternal } from 'react-icons/vsc';
+import { VscGithub, VscMail } from 'react-icons/vsc';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import Link from 'next/link';
 
 import styles from '@/styles/AboutPage.module.css';
@@ -22,6 +24,7 @@ const AboutPage = () => {
           </div>
 
           <div className={styles.headerActions}>
+            {/* GitHub */}
             <a
               href="https://github.com/ermadhav"
               target="_blank"
@@ -30,6 +33,38 @@ const AboutPage = () => {
             >
               <VscGithub size={20} />
             </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/ermadhav"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.iconButton}
+            >
+              <FaLinkedin size={20} />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/madhav.tiwari24"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.iconButton}
+            >
+              <FaInstagram size={20} />
+            </a>
+
+            {/* LeetCode */}
+            <a
+              href="https://leetcode.com/cosmocoders"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.iconButton}
+            >
+              <SiLeetcode size={20} />
+            </a>
+
+            {/* Email */}
             <Link href="/contact" className={styles.iconButton}>
               <VscMail size={20} />
             </Link>
