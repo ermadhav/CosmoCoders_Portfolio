@@ -24,11 +24,11 @@ export const projects: Project[] = [
     slug: 'ISS Tracker',
   },
   {
-    title: 'Subtrackt',
+    title: 'AI Reel Generator',
     description:
       'A simple and elegant way to track your subscriptions and save money.',
     logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/itsnitinr/subtrackt',
+    link: 'https://github.com/ermadhav/Python/tree/master/project1',
     slug: 'subtrackt',
   },
   {
