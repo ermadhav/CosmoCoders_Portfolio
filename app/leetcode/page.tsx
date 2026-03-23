@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { VscLinkExternal, VscGraph, VscSymbolNumber } from 'react-icons/vsc';
+
 import styles from '@/styles/LeetcodePage.module.css';
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Referer: 'https://leetcode.com',
     },
     body: JSON.stringify({
       query: `
@@ -38,7 +41,6 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
             }
             profile {
               ranking
-              userAvatar
             }
             contributions {
               points
@@ -49,10 +51,6 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
       variables: { username },
     }),
   });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch LeetCode data');
-  }
 
   const json = await res.json();
   const data = json.data.matchedUser;
@@ -70,7 +68,7 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
   };
 }
 
-export default async function LeetCodePage() {
+export default async function LeetcodePage() {
   const stats = await getLeetCodeData();
 
   return (
@@ -80,8 +78,10 @@ export default async function LeetCodePage() {
         {/* Header */}
         <header className={styles.header}>
           <div className={styles.profile}>
-            <h1 className={styles.name}>{stats.username}</h1>
-            <span className={styles.handle}>LeetCode Profile</span>
+            <div className={styles.profileInfo}>
+              <h1 className={styles.name}>{stats.username}</h1>
+              <span className={styles.handle}>LeetCode Profile</span>
+            </div>
           </div>
 
           <a
@@ -90,7 +90,8 @@ export default async function LeetCodePage() {
             rel="noopener noreferrer"
             className={styles.profileLink}
           >
-            View Profile ↗
+            <span>View Profile</span>
+            <VscLinkExternal size={14} />
           </a>
         </header>
 
@@ -98,46 +99,66 @@ export default async function LeetCodePage() {
         <div className={styles.statsGrid}>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.totalSolved}</span>
-            <span className={styles.statLabel}>Total Solved</span>
+            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.totalSolved}</span>
+              <span className={styles.statLabel}>Solved</span>
+            </div>
           </div>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.easySolved}</span>
-            <span className={styles.statLabel}>Easy</span>
+            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.easySolved}</span>
+              <span className={styles.statLabel}>Easy</span>
+            </div>
           </div>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.mediumSolved}</span>
-            <span className={styles.statLabel}>Medium</span>
+            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.mediumSolved}</span>
+              <span className={styles.statLabel}>Medium</span>
+            </div>
           </div>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.hardSolved}</span>
-            <span className={styles.statLabel}>Hard</span>
+            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.hardSolved}</span>
+              <span className={styles.statLabel}>Hard</span>
+            </div>
           </div>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.ranking}</span>
-            <span className={styles.statLabel}>Global Ranking</span>
+            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.ranking}</span>
+              <span className={styles.statLabel}>Ranking</span>
+            </div>
           </div>
 
           <div className={styles.statCard}>
-            <span className={styles.statValue}>{stats.contributionPoints}</span>
-            <span className={styles.statLabel}>Contribution Points</span>
+            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statInfo}>
+              <span className={styles.statValue}>{stats.contributionPoints}</span>
+              <span className={styles.statLabel}>Points</span>
+            </div>
           </div>
 
         </div>
 
-        {/* Optional Heatmap */}
+        {/* Activity */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Activity</h2>
 
-          <img
-            src={`https://leetcard.jacoblin.cool/${stats.username}?theme=dark&font=baloo&ext=heatmap`}
-            alt="LeetCode Stats"
-            className={styles.leetcodeCard}
-          />
+          <div className={styles.contributions}>
+            <img
+              src={`https://leetcard.jacoblin.cool/${stats.username}?theme=dark&ext=heatmap`}
+              alt="LeetCode Heatmap"
+              style={{ width: '100%' }}
+            />
+          </div>
         </section>
 
       </div>
