@@ -23,7 +23,7 @@ const AboutPage = () => {
 
           <div className={styles.headerActions}>
             <a
-              href="https://github.com/itsnitinr"
+              href="https://github.com/ermadhav"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.iconButton}
