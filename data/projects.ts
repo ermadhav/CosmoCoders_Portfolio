@@ -11,7 +11,7 @@ export const projects: Project[] = [
     title: 'EchoVerse',
     description:
       'EchoVerse, a dynamic chat and video call platform that connects you with friends, acquaintances, or strangers!',
-    logo: '/logos/driwwwle.svg',
+    logo: '/logos/ca.svg',
     link: 'https://github.com/ermadhav/ChatApp',
     slug: 'EchoVerse',
   },
