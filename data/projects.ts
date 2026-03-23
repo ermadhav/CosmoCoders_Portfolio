@@ -8,11 +8,11 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Driwwwle',
+    title: 'EchoVerse',
     description:
       'Discover creative websites and developers. A portal for you to share your projects.',
     logo: '/logos/driwwwle.svg',
-    link: 'https://github.com/itsnitinr/driwwwle',
+    link: 'https://github.com/ermadhav/ChatApp',
     slug: 'driwwwle',
   },
   {
