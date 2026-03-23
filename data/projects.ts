@@ -13,15 +13,15 @@ export const projects: Project[] = [
       'EchoVerse, a dynamic chat and video call platform that connects you with friends, acquaintances, or strangers!',
     logo: '/logos/driwwwle.svg',
     link: 'https://github.com/ermadhav/ChatApp',
-    slug: 'driwwwle',
+    slug: 'EchoVerse',
   },
   {
     title: 'ISS Tracker',
     description:
       'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
-    logo: '/logos/vsc.svg',
+    logo: '/logos/iss.svg',
     link: 'https://github.com/ermadhav/ISS_Tracker',
-    slug: 'vscode-portfolio',
+    slug: 'ISS Tracker',
   },
   {
     title: 'Subtrackt',
