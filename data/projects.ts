@@ -27,7 +27,7 @@ export const projects: Project[] = [
     title: 'AI Reel Generator',
     description:
       'A simple and elegant way to create your Reel using AI.',
-    logo: '/logos/subtrackt.svg',
+    logo: '/logos/ai.svg',
     link: 'https://github.com/ermadhav/Python/tree/master/project1',
     slug: 'subtrackt',
   },
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     description:
       'Track your GitHub commits and LeetCode problem-solving streaks in one beautiful mobile app. Built with Expo + React Native, designed for developers who care about consistency.',
     logo: '/logos/ds.svg',
-    link: 'https://github.com/itsnitinr/coolify-vscode-extension',
+    link: 'https://github.com/ermadhav/Dev_Streaks',
     slug: 'coolify-vscode-extension',
   },
 ];
