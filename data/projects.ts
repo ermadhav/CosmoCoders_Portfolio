@@ -34,8 +34,8 @@ export const projects: Project[] = [
   {
     title: 'Dev Streaks',
     description:
-      'VSCode extension to track and deploy your Coolify applications.',
-    logo: '/logos/coolify.svg',
+      'Track your GitHub commits and LeetCode problem-solving streaks in one beautiful mobile app. Built with Expo + React Native, designed for developers who care about consistency.',
+    logo: '/logos/ds.svg',
     link: 'https://github.com/itsnitinr/coolify-vscode-extension',
     slug: 'coolify-vscode-extension',
   },
