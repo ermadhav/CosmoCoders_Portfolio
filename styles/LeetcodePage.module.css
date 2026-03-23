@@ -1,0 +1,75 @@
+.page {
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.handle {
+  opacity: 0.6;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  padding: 1rem;
+  border-radius: 10px;
+  background: #161b22;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.leetcodeCard {
+  width: 100%;
+  border-radius: 10px;
+}
