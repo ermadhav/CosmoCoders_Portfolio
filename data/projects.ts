@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     title: 'ISS Tracker',
     description:
-      'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
+      'Track the real-time location of the International Space Station (ISS) on a 3D globe, and receive email alerts when its passing near your location',
     logo: '/logos/iss.svg',
     link: 'https://github.com/ermadhav/ISS_Tracker',
     slug: 'ISS Tracker',
