@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { VscLinkExternal, VscGraph, VscSymbolNumber } from 'react-icons/vsc';
+// import { VscLinkExternal, VscGraph, VscSymbolNumber } from 'react-icons/vsc';
 
 import styles from '@/styles/LeetcodePage.module.css';
 
