@@ -26,13 +26,13 @@ export const projects: Project[] = [
   {
     title: 'AI Reel Generator',
     description:
-      'A simple and elegant way to track your subscriptions and save money.',
+      'A simple and elegant way to create your Reel using AI.',
     logo: '/logos/subtrackt.svg',
     link: 'https://github.com/ermadhav/Python/tree/master/project1',
     slug: 'subtrackt',
   },
   {
-    title: 'Coolify Deployments',
+    title: 'Dev Streaks',
     description:
       'VSCode extension to track and deploy your Coolify applications.',
     logo: '/logos/coolify.svg',
