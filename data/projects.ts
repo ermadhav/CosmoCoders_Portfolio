@@ -10,13 +10,13 @@ export const projects: Project[] = [
   {
     title: 'EchoVerse',
     description:
-      'Discover creative websites and developers. A portal for you to share your projects.',
+      'EchoVerse, a dynamic chat and video call platform that connects you with friends, acquaintances, or strangers!',
     logo: '/logos/driwwwle.svg',
     link: 'https://github.com/ermadhav/ChatApp',
     slug: 'driwwwle',
   },
   {
-    title: 'VSCode Portfolio',
+    title: 'ISS Tracker',
     description:
       'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
     logo: '/logos/vsc.svg',
