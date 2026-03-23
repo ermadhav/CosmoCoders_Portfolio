@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
-import { VscLinkExternal, VscGraph, VscSymbolNumber } from 'react-icons/vsc';
+import { 
+  VscLinkExternal, 
+  VscGraph, 
+  VscRepo, 
+  VscPerson 
+} from 'react-icons/vsc';
 
 import styles from '@/styles/LeetcodePage.module.css';
 
@@ -52,6 +57,10 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
     }),
   });
 
+  if (!res.ok) {
+    throw new Error('Failed to fetch LeetCode data');
+  }
+
   const json = await res.json();
   const data = json.data.matchedUser;
 
@@ -59,12 +68,12 @@ async function getLeetCodeData(): Promise<LeetCodeStats> {
 
   return {
     username: data.username,
-    totalSolved: stats.find((s: any) => s.difficulty === 'All').count,
-    easySolved: stats.find((s: any) => s.difficulty === 'Easy').count,
-    mediumSolved: stats.find((s: any) => s.difficulty === 'Medium').count,
-    hardSolved: stats.find((s: any) => s.difficulty === 'Hard').count,
-    ranking: data.profile.ranking,
-    contributionPoints: data.contributions.points,
+    totalSolved: stats.find((s: any) => s.difficulty === 'All')?.count || 0,
+    easySolved: stats.find((s: any) => s.difficulty === 'Easy')?.count || 0,
+    mediumSolved: stats.find((s: any) => s.difficulty === 'Medium')?.count || 0,
+    hardSolved: stats.find((s: any) => s.difficulty === 'Hard')?.count || 0,
+    ranking: data.profile?.ranking || 0,
+    contributionPoints: data.contributions?.points || 0,
   };
 }
 
@@ -99,7 +108,9 @@ export default async function LeetcodePage() {
         <div className={styles.statsGrid}>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscRepo size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.totalSolved}</span>
               <span className={styles.statLabel}>Solved</span>
@@ -107,7 +118,9 @@ export default async function LeetcodePage() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscGraph size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.easySolved}</span>
               <span className={styles.statLabel}>Easy</span>
@@ -115,7 +128,9 @@ export default async function LeetcodePage() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscGraph size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.mediumSolved}</span>
               <span className={styles.statLabel}>Medium</span>
@@ -123,7 +138,9 @@ export default async function LeetcodePage() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscGraph size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscGraph size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.hardSolved}</span>
               <span className={styles.statLabel}>Hard</span>
@@ -131,7 +148,9 @@ export default async function LeetcodePage() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscPerson size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.ranking}</span>
               <span className={styles.statLabel}>Ranking</span>
@@ -139,7 +158,9 @@ export default async function LeetcodePage() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statIcon}><VscSymbolNumber size={20} /></div>
+            <div className={styles.statIcon}>
+              <VscPerson size={20} />
+            </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>{stats.contributionPoints}</span>
               <span className={styles.statLabel}>Points</span>
