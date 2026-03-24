@@ -76,7 +76,6 @@ const CommandPalette = ({
         action: () => router.push('/projects'),
       },
 
-      // ✅ LEETCODE COMMAND ADDED HERE
       {
         id: 'go-leetcode',
         label: 'Open LeetCode',
@@ -84,7 +83,7 @@ const CommandPalette = ({
         shortcut: 'G L',
         icon: <SiLeetcode size={16} color="#FFA116" />,
         action: () =>
-          window.open('https://leetcode.com/your-username', '_blank'),
+          router.push('/projects'),
       },
 
       {
@@ -280,9 +279,8 @@ const CommandPalette = ({
                 {filteredThemes.map((theme, index) => (
                   <div
                     key={theme.theme}
-                    className={`${styles.item} ${
-                      selectedIndex === index ? styles.selected : ''
-                    }`}
+                    className={`${styles.item} ${selectedIndex === index ? styles.selected : ''
+                      }`}
                     onClick={() => handleSelect(index)}
                     onMouseEnter={() => setSelectedIndex(index)}
                   >
@@ -320,11 +318,10 @@ const CommandPalette = ({
                       </div>
                     )}
                     <div
-                      className={`${styles.item} ${
-                        selectedIndex === currentIndex
+                      className={`${styles.item} ${selectedIndex === currentIndex
                           ? styles.selected
                           : ''
-                      }`}
+                        }`}
                       onClick={() => handleSelect(currentIndex)}
                       onMouseEnter={() =>
                         setSelectedIndex(currentIndex)
