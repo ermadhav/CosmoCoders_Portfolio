@@ -2,7 +2,19 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { VscSymbolColor, VscTerminal, VscFiles, VscGoToFile, VscGear, VscColorMode, VscHome, VscAccount, VscCode, VscBook, VscMail, VscGithubAlt } from 'react-icons/vsc';
+import {
+  VscSymbolColor,
+  VscTerminal,
+  VscGoToFile,
+  VscGear,
+  VscColorMode,
+  VscHome,
+  VscAccount,
+  VscCode,
+  VscMail,
+  VscGithubAlt,
+} from 'react-icons/vsc';
+import { SiLeetcode } from 'react-icons/si';
 import { MdNavigateNext } from 'react-icons/md';
 
 import { THEMES } from '@/lib/themes';
@@ -24,7 +36,12 @@ interface CommandPaletteProps {
   isTerminalOpen: boolean;
 }
 
-const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: CommandPaletteProps) => {
+const CommandPalette = ({
+  isOpen,
+  onClose,
+  onToggleTerminal,
+  isTerminalOpen,
+}: CommandPaletteProps) => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -58,14 +75,18 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         icon: <VscCode size={16} />,
         action: () => router.push('/projects'),
       },
+
+      // ✅ LEETCODE COMMAND ADDED HERE
       {
-        id: 'go-contact',
-        label: 'Go to Contact',
+        id: 'go-leetcode',
+        label: 'Open LeetCode',
         category: 'Navigation',
-        shortcut: 'G C',
-        icon: <VscMail size={16} />,
-        action: () => router.push('/contact'),
+        shortcut: 'G L',
+        icon: <SiLeetcode size={16} color="#FFA116" />,
+        action: () =>
+          window.open('https://leetcode.com/your-username', '_blank'),
       },
+
       {
         id: 'go-github',
         label: 'Go to GitHub',
@@ -73,6 +94,14 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         shortcut: 'G G',
         icon: <VscGithubAlt size={16} />,
         action: () => router.push('/github'),
+      },
+      {
+        id: 'go-contact',
+        label: 'Go to Contact',
+        category: 'Navigation',
+        shortcut: 'G C',
+        icon: <VscMail size={16} />,
+        action: () => router.push('/contact'),
       },
       {
         id: 'go-settings',
@@ -164,7 +193,15 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         handleSelect(selectedIndex);
       }
     },
-    [isOpen, onClose, filteredCommands, filteredThemes, selectedIndex, handleSelect, showThemePicker]
+    [
+      isOpen,
+      onClose,
+      filteredCommands,
+      filteredThemes,
+      selectedIndex,
+      handleSelect,
+      showThemePicker,
+    ]
   );
 
   useEffect(() => {
@@ -187,7 +224,9 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
 
   useEffect(() => {
     if (listRef.current && selectedIndex >= 0) {
-      const selectedElement = listRef.current.children[selectedIndex] as HTMLElement;
+      const selectedElement = listRef.current.children[
+        selectedIndex
+      ] as HTMLElement;
       if (selectedElement) {
         selectedElement.scrollIntoView({ block: 'nearest' });
       }
@@ -198,7 +237,10 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.container}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles.inputWrapper}>
           <VscGoToFile size={20} className={styles.inputIcon} />
           <input
@@ -206,7 +248,11 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={showThemePicker ? 'Select color theme' : 'Type a command or search...'}
+            placeholder={
+              showThemePicker
+                ? 'Select color theme'
+                : 'Type a command or search...'
+            }
             className={styles.input}
             spellCheck={false}
             autoComplete="off"
@@ -244,8 +290,12 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
                       <VscColorMode size={16} />
                     </div>
                     <div className={styles.itemContent}>
-                      <span className={styles.itemLabel}>{theme.name}</span>
-                      <span className={styles.itemDescription}>{theme.publisher}</span>
+                      <span className={styles.itemLabel}>
+                        {theme.name}
+                      </span>
+                      <span className={styles.itemDescription}>
+                        {theme.publisher}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -257,25 +307,36 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
             (() => {
               let lastCategory = '';
               let itemIndex = 0;
-              return filteredCommands.map((cmd, index) => {
+              return filteredCommands.map((cmd) => {
                 const showCategory = cmd.category !== lastCategory;
                 lastCategory = cmd.category;
                 const currentIndex = itemIndex++;
+
                 return (
                   <div key={cmd.id}>
                     {showCategory && (
-                      <div className={styles.category}>{cmd.category}</div>
+                      <div className={styles.category}>
+                        {cmd.category}
+                      </div>
                     )}
                     <div
                       className={`${styles.item} ${
-                        selectedIndex === currentIndex ? styles.selected : ''
+                        selectedIndex === currentIndex
+                          ? styles.selected
+                          : ''
                       }`}
                       onClick={() => handleSelect(currentIndex)}
-                      onMouseEnter={() => setSelectedIndex(currentIndex)}
+                      onMouseEnter={() =>
+                        setSelectedIndex(currentIndex)
+                      }
                     >
-                      <div className={styles.itemIcon}>{cmd.icon}</div>
+                      <div className={styles.itemIcon}>
+                        {cmd.icon}
+                      </div>
                       <div className={styles.itemContent}>
-                        <span className={styles.itemLabel}>{cmd.label}</span>
+                        <span className={styles.itemLabel}>
+                          {cmd.label}
+                        </span>
                       </div>
                       {cmd.shortcut && (
                         <div className={styles.shortcut}>
