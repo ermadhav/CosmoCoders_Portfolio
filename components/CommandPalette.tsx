@@ -68,14 +68,6 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
       },
       {
         id: 'go-github',
-        label: 'Go to Leetcode',
-        category: 'Navigation',
-        shortcut: 'L L',
-        icon: <VscGithubAlt size={16} />,
-        action: () => router.push('/leetcode'),
-      },
-      {
-        id: 'go-github',
         label: 'Go to GitHub',
         category: 'Navigation',
         shortcut: 'G G',
