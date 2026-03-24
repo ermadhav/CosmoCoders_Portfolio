@@ -87,9 +87,8 @@ const CommandPalette = ({
         label: 'Open LeetCode',
         category: 'Navigation',
         shortcut: 'G L',
-        icon: <SiLeetcode size={16} />, // no color → matches theme
-        action: () =>
-          window.open('https://leetcode.com/your-username', '_blank'),
+        icon: <SiLeetcode size={16} />, 
+        action: () => router.push('/leetcode'),
       },
 
       {
