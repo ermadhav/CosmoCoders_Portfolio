@@ -82,8 +82,7 @@ const CommandPalette = ({
         category: 'Navigation',
         shortcut: 'G L',
         icon: <SiLeetcode size={16} color="#FFA116" />,
-        action: () =>
-          router.push('/projects'),
+        action: () => router.push('/leetcode'),
       },
 
       {
