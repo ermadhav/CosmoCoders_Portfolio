@@ -46,11 +46,16 @@ const CommandPalette = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showThemePicker, setShowThemePicker] = useState(false);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
+  // ✅ NEW: key sequence support (G → L etc.)
+  const keySequence = useRef<string[]>([]);
+  const sequenceTimeout = useRef<NodeJS.Timeout | null>(null);
+
   const getCommands = useCallback((): Command[] => {
-    const baseCommands: Command[] = [
+    return [
       {
         id: 'go-home',
         label: 'Go to Home',
@@ -76,13 +81,15 @@ const CommandPalette = ({
         action: () => router.push('/projects'),
       },
 
+      // ✅ LEETCODE (fixed)
       {
         id: 'go-leetcode',
         label: 'Open LeetCode',
         category: 'Navigation',
         shortcut: 'G L',
-        icon: <SiLeetcode size={16} color="#FFA116" />,
-        action: () => router.push('/leetcode'),
+        icon: <SiLeetcode size={16} />, // no color → matches theme
+        action: () =>
+          window.open('https://leetcode.com/your-username', '_blank'),
       },
 
       {
@@ -126,8 +133,6 @@ const CommandPalette = ({
         action: () => setShowThemePicker(true),
       },
     ];
-
-    return baseCommands;
   }, [router, onToggleTerminal, isTerminalOpen]);
 
   const commands = getCommands();
@@ -163,9 +168,36 @@ const CommandPalette = ({
     [filteredCommands, filteredThemes, onClose, showThemePicker]
   );
 
+  // ✅ UPDATED KEY HANDLER (sequence support)
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (!isOpen) return;
+
+      if (sequenceTimeout.current) {
+        clearTimeout(sequenceTimeout.current);
+      }
+
+      sequenceTimeout.current = setTimeout(() => {
+        keySequence.current = [];
+      }, 800);
+
+      // Capture letters for sequences
+      if (/^[a-zA-Z]$/.test(e.key)) {
+        keySequence.current.push(e.key.toUpperCase());
+
+        const sequence = keySequence.current.join(' ');
+        const match = filteredCommands.find(
+          (cmd) => cmd.shortcut === sequence
+        );
+
+        if (match) {
+          e.preventDefault();
+          match.action();
+          onClose();
+          keySequence.current = [];
+          return;
+        }
+      }
 
       if (e.key === 'Escape') {
         if (showThemePicker) {
@@ -213,6 +245,7 @@ const CommandPalette = ({
       setSearchQuery('');
       setSelectedIndex(0);
       setShowThemePicker(false);
+      keySequence.current = [];
     }
   }, [isOpen]);
 
@@ -252,119 +285,34 @@ const CommandPalette = ({
                 : 'Type a command or search...'
             }
             className={styles.input}
-            spellCheck={false}
-            autoComplete="off"
           />
-          {searchQuery && (
-            <button
-              className={styles.clearButton}
-              onClick={() => {
-                setSearchQuery('');
-                inputRef.current?.focus();
-              }}
-            >
-              ×
-            </button>
-          )}
         </div>
 
         <div className={styles.results} ref={listRef}>
-          {showThemePicker ? (
-            filteredThemes.length === 0 ? (
-              <div className={styles.noResults}>No matching themes</div>
-            ) : (
-              <>
-                <div className={styles.category}>Color Theme</div>
-                {filteredThemes.map((theme, index) => (
-                  <div
-                    key={theme.theme}
-                    className={`${styles.item} ${selectedIndex === index ? styles.selected : ''
-                      }`}
-                    onClick={() => handleSelect(index)}
-                    onMouseEnter={() => setSelectedIndex(index)}
-                  >
-                    <div className={styles.itemIcon}>
-                      <VscColorMode size={16} />
-                    </div>
-                    <div className={styles.itemContent}>
-                      <span className={styles.itemLabel}>
-                        {theme.name}
-                      </span>
-                      <span className={styles.itemDescription}>
-                        {theme.publisher}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )
-          ) : filteredCommands.length === 0 ? (
-            <div className={styles.noResults}>No matching commands</div>
-          ) : (
-            (() => {
-              let lastCategory = '';
-              let itemIndex = 0;
-              return filteredCommands.map((cmd) => {
-                const showCategory = cmd.category !== lastCategory;
-                lastCategory = cmd.category;
-                const currentIndex = itemIndex++;
-
-                return (
-                  <div key={cmd.id}>
-                    {showCategory && (
-                      <div className={styles.category}>
-                        {cmd.category}
-                      </div>
-                    )}
-                    <div
-                      className={`${styles.item} ${selectedIndex === currentIndex
-                          ? styles.selected
-                          : ''
-                        }`}
-                      onClick={() => handleSelect(currentIndex)}
-                      onMouseEnter={() =>
-                        setSelectedIndex(currentIndex)
-                      }
-                    >
-                      <div className={styles.itemIcon}>
-                        {cmd.icon}
-                      </div>
-                      <div className={styles.itemContent}>
-                        <span className={styles.itemLabel}>
-                          {cmd.label}
-                        </span>
-                      </div>
-                      {cmd.shortcut && (
-                        <div className={styles.shortcut}>
-                          {cmd.id === 'change-theme' ? (
-                            <MdNavigateNext size={16} />
-                          ) : (
-                            cmd.shortcut.split(' ').map((key, i) => (
-                              <span key={i} className={styles.key}>
-                                {key}
-                              </span>
-                            ))
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              });
-            })()
-          )}
-        </div>
-
-        <div className={styles.footer}>
-          <div className={styles.footerItem}>
-            <span className={styles.key}>↑↓</span> to navigate
-          </div>
-          <div className={styles.footerItem}>
-            <span className={styles.key}>↵</span> to select
-          </div>
-          <div className={styles.footerItem}>
-            <span className={styles.key}>esc</span> to close
-          </div>
+          {filteredCommands.map((cmd, index) => (
+            <div
+              key={cmd.id}
+              className={`${styles.item} ${
+                selectedIndex === index ? styles.selected : ''
+              }`}
+              onClick={() => handleSelect(index)}
+              onMouseEnter={() => setSelectedIndex(index)}
+            >
+              <div className={styles.itemIcon}>{cmd.icon}</div>
+              <div className={styles.itemContent}>
+                <span className={styles.itemLabel}>{cmd.label}</span>
+              </div>
+              {cmd.shortcut && (
+                <div className={styles.shortcut}>
+                  {cmd.shortcut.split(' ').map((key, i) => (
+                    <span key={i} className={styles.key}>
+                      {key}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
