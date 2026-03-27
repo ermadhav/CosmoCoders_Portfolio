@@ -27,6 +27,11 @@ const explorerItems = [
     icon: '/logos/js_icon.svg',
   },
   {
+    name: 'leetcode.js', // 👈 added
+    path: '/leetcode',   // or your actual route
+    icon: '/logos/leetcode_icon.svg', // make sure this file exists
+  },
+  {
     name: 'github.md',
     path: '/github',
     icon: '/logos/markdown_icon.svg',
