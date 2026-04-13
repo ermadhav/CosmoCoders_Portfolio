@@ -1,7 +1,12 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import GitHubCalendar from 'react-github-calendar';
-import { VscRepo, VscPerson, VscStarEmpty, VscRepoForked, VscLinkExternal, VscGithub } from 'react-icons/vsc';
+import {
+  VscRepo,
+  VscPerson,
+  VscStarEmpty,
+  VscLinkExternal,
+  VscGithub
+} from 'react-icons/vsc';
 
 import RepoCard from '@/components/RepoCard';
 import { Repo, User } from '@/types';
@@ -40,6 +45,7 @@ export default async function GithubPage() {
   return (
     <div className={styles.page}>
       <div className={styles.container}>
+        
         {/* Header */}
         <header className={styles.header}>
           <div className={styles.profile}>
@@ -57,7 +63,7 @@ export default async function GithubPage() {
             </div>
           </div>
 
-          <a 
+          <a
             href={`https://github.com/${user.login}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -114,22 +120,14 @@ export default async function GithubPage() {
           </div>
         </div>
 
-        {/* Contribution Graph */}
+        {/* 🐍 Contribution Activity (Snake Only) */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Contribution Activity</h2>
-          <div className={styles.contributions}>
-            <GitHubCalendar
-              username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
-              hideColorLegend
-              hideMonthLabels
-              colorScheme="dark"
-              theme={{
-                dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-                light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-              }}
-              style={{
-                width: '100%',
-              }}
+
+          <div className={styles.snakeContainer}>
+            <img
+              src={`https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/output/github-snake-dark.svg`}
+              alt="GitHub Contribution Snake"
             />
           </div>
         </section>
@@ -138,7 +136,7 @@ export default async function GithubPage() {
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Popular Repositories</h2>
-            <a 
+            <a
               href={`https://github.com/${user.login}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
@@ -148,13 +146,14 @@ export default async function GithubPage() {
               <VscLinkExternal size={14} />
             </a>
           </div>
-          
+
           <div className={styles.reposGrid}>
             {repos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />
             ))}
           </div>
         </section>
+
       </div>
     </div>
   );

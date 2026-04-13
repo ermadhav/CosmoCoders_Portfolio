@@ -54,6 +54,32 @@
   font-family: var(--font-mono);
 }
 
+.snakeContainer {
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0d1117;
+  padding: 30px; /* 👈 more spacing */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snakeContainer img {
+  width: 100%;
+  max-width: 1000px;
+
+  height: 350px;        /* 👈 increase height */
+  object-fit: cover;    /* 👈 IMPORTANT (fills height) */
+
+  transform: scaleY(1.5); /* 👈 stretch vertically */
+  transition: transform 0.3s ease;
+}
+
+.snakeContainer img:hover {
+  transform: scaleY(1.6) scaleX(1.02);
+}
 .profileLink {
   display: flex;
   align-items: center;
