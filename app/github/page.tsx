@@ -122,7 +122,7 @@ export default async function GithubPage() {
 
         {/* 🐍 Contribution Activity (Snake Only) */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>🚀 Where My Time Goes</h2>
+          <h2 className={styles.sectionTitle}>Where My Time Goes</h2>
 
           <div className={styles.snakeContainer}>
             <img
