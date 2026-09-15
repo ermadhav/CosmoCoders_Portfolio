@@ -288,30 +288,48 @@ const CommandPalette = ({
         </div>
 
         <div className={styles.results} ref={listRef}>
-          {filteredCommands.map((cmd, index) => (
-            <div
-              key={cmd.id}
-              className={`${styles.item} ${
-                selectedIndex === index ? styles.selected : ''
-              }`}
-              onClick={() => handleSelect(index)}
-              onMouseEnter={() => setSelectedIndex(index)}
-            >
-              <div className={styles.itemIcon}>{cmd.icon}</div>
-              <div className={styles.itemContent}>
-                <span className={styles.itemLabel}>{cmd.label}</span>
-              </div>
-              {cmd.shortcut && (
-                <div className={styles.shortcut}>
-                  {cmd.shortcut.split(' ').map((key, i) => (
-                    <span key={i} className={styles.key}>
-                      {key}
-                    </span>
-                  ))}
+          {showThemePicker
+            ? filteredThemes.map((theme, index) => (
+                <div
+                  key={theme.theme}
+                  className={`${styles.item} ${
+                    selectedIndex === index ? styles.selected : ''
+                  }`}
+                  onClick={() => handleSelect(index)}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                >
+                  <div className={styles.itemIcon}>
+                    <MdNavigateNext size={16} />
+                  </div>
+                  <div className={styles.itemContent}>
+                    <span className={styles.itemLabel}>{theme.name}</span>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              ))
+            : filteredCommands.map((cmd, index) => (
+                <div
+                  key={cmd.id}
+                  className={`${styles.item} ${
+                    selectedIndex === index ? styles.selected : ''
+                  }`}
+                  onClick={() => handleSelect(index)}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                >
+                  <div className={styles.itemIcon}>{cmd.icon}</div>
+                  <div className={styles.itemContent}>
+                    <span className={styles.itemLabel}>{cmd.label}</span>
+                  </div>
+                  {cmd.shortcut && (
+                    <div className={styles.shortcut}>
+                      {cmd.shortcut.split(' ').map((key, i) => (
+                        <span key={i} className={styles.key}>
+                          {key}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
         </div>
       </div>
     </div>
